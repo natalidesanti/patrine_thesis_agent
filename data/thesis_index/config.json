@@ -1,0 +1,7 @@
+{
+  "pdf": "data/tesenatalisolermatubarodesanti.pdf",
+  "num_chunks": 284,
+  "embedding_model": "all-MiniLM-L6-v2",
+  "window": 600,
+  "stride": 300
+}
