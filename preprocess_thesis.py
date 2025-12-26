@@ -6,6 +6,10 @@ Preprocess script:
 - Saves everything to disk
 """
 
+#------------------
+# Libraries
+#------------------
+
 import sys
 import re
 import json
@@ -13,6 +17,10 @@ import numpy as np
 from pathlib import Path
 from pdfminer.high_level import extract_text
 from sentence_transformers import SentenceTransformer
+
+#------------------
+# Cleaning and sliding
+#------------------
 
 def clean_text(text: str) -> str:
     
@@ -30,6 +38,10 @@ def sliding_window_chunks(text, window = 600, stride = 300, min_words = 50):
         if len(chunk.split()) >= min_words:
             chunks.append(chunk)
     return chunks
+
+#------------------
+# Main
+#------------------
 
 def main(pdf_path: str, out_dir: str):
     
