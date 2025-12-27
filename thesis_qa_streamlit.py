@@ -55,7 +55,7 @@ SYSTEM_PROMPT = (
 def generate_answer(question, context, model = "llama3"):
     prompt = (SYSTEM_PROMPT + f"Thesis excerpts: {context}"
         f"Question: {question} Answer:" )
-    response = ollama_client.generate(model = model, prompt = prompt, stream = False)
+    response = ollama_client.generate(model = model, prompt = prompt, stream = False, options={"temperature": 0.1})
     return response["response"].strip()
 
 #------------------
@@ -112,7 +112,7 @@ st.markdown(f"Hello there, I am **Patrine**, Natalí de Santi's PhD Thesis Agent
 THESIS_PDF_URL = "https://www.teses.usp.br/teses/disponiveis/43/43134/tde-15072024-101341/publico/tesenatalisolermatubarodesanti.pdf"
 st.markdown(f"📄 **Thesis PDF:** Download [here]({THESIS_PDF_URL})", unsafe_allow_html = False)
 
-st.markdown("I assistant answer questions *only* based on the content of the thesis, and I might hallucinate a bit 🤪")
+st.markdown("I am an assistant that answer questions *only* based on the content of the thesis, and I might hallucinate a bit 🤪")
 
 AUTHOR_EMAIL = "natalidesanti@gmail.com"
 st.markdown(f"For clarifications, interpretations, or discussions please contact Natalí directly at **{AUTHOR_EMAIL}**")
